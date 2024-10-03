@@ -14,11 +14,16 @@ Round = 0
 Money = 0
 Multiplier = 0.5 * Round
 GameOn = True
+Dead = False
+
+Load = input("Press ENTER to take the shot")
+
+
+
 Chambers = [0, 0, 0, 0, 0, 1]
 
 
 print("***CLACK*** the revolvers cylinder swings open. 5 empty chambers. One live...")
-
 
 print("""
 
@@ -57,11 +62,11 @@ while GameOn == True:
     #Code if the player re-rolls the cylinder
     if choice == "Roll":
         #Checks if player has enough money to re-roll. [DEF Needed = 50]
-        if Money >= 10 * Multiplier: 
+        if Money >= 50 * Multiplier: 
             print("The revolver is grabbed by a person behind you... He opens it with a clack and spins the cylinder... Reseting the chances...")
             #Resets the chambers and the chances.
             Chambers = [0, 0, 0, 0, 0, 1] 
-            Money = Money - 10 * Multiplier
+            Money = Money - 50 * Multiplier
         #Message if the player lacks the sufficient money to reroll... Resets the current round to the start.
         else: print("- Hey dipshit... you dont have enough money to reroll. A man laughs behind you. Seemingly the big boss of this place...")
     
@@ -73,12 +78,11 @@ while GameOn == True:
 else:
     print("You muttered something under your breath... This seemed to tick the host off... - Little bunny dont want to play anymore? FINE. ***BANG*** Everything fades to black as you were knocked unconsious by the host...")
 #Ending message for Stopping before lobotomy via 44 magnum.
+
+
+
 if Dead == False:
     print("Game statistics: Money earned - " + str(Money) + " Rounds survived " + str(Round))
 #Ending message after lobotomy via 44 magnum.
 if Dead == True:
     print("Game statistics: Money: " + str(Money) + " Rounds survived before death: " + str(Round))
-
-
-
-
